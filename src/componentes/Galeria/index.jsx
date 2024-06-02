@@ -1,19 +1,30 @@
-import styled from "styled-components"
-import Imagem from "./Imagem"
+import Titulo from "../Titulo";
+import Tags from "./Tags";
+import Populares from "./Populares";
+import styled from "styled-components";
 
-const H2Estilizado = styled.h2`
-    font-size: 32px;
-    color: #7B78E5;
+const GaleriaContainer = styled.div`
+    display: flex;
 `
 
-const Galeria = ({ fotos = [] }) => {
-    return (
-    <H2Estilizado>
-        Navegue pela Galeria
-        <ul>
-            {fotos.map(foto => <Imagem key={foto.id} foto={foto} /> )}
-        </ul>
-    </H2Estilizado>)
-}
+const SecaoFluida = styled.section`
+    flex-grow: 1;
+`
 
-export default Galeria
+const Galeria = () => {
+  return (
+    <>
+      <Tags />
+      <GaleriaContainer>
+        <SecaoFluida>
+            <Titulo>Navegue pela Galeria</Titulo>
+        </SecaoFluida>
+        <Populares />
+      </GaleriaContainer>
+      <ul>
+      </ul>
+    </>
+  );
+};
+
+export default Galeria;

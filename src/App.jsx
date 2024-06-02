@@ -4,7 +4,6 @@ import Cabecalho from "./componentes/Cabecalho";
 import BarraLateral from "./componentes/BarraLateral";
 import Banner from "./componentes/Banner";
 import Galeria from "./componentes/Galeria";
-import BuscaPorTags from "./componentes/BuscaPorTags";
 
 import fotos from './fotos.json'
 import { useState } from "react";
@@ -52,7 +51,6 @@ const App = () => {
                 texto="A galeria mais completa de fotos do espaço!"
                 backgroundImage="./banner.png"
               />
-              <BuscaPorTags />
               <Galeria fotos={fotosDaGaleria}/>
             </ConteudoGaleria>
             
