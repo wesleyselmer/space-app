@@ -19,6 +19,7 @@ const FigcaptionEstilizada = styled.figcaption`
     height: 80px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     background-color: #001634;
     border-radius: 0 0 20px 20px;
     color: #FFFFFF;
@@ -32,7 +33,7 @@ const FigcaptionEstilizada = styled.figcaption`
     }
 
     h3, h4 {
-        margin: 0;
+        margin: 0 20px;
         font-size: 16px;
     }
 `
@@ -44,17 +45,19 @@ const FooterEstilizada = styled.footer`
 
     p {
         font-size: 14px;
+        margin: 0 20px;
     }
 
     button {
         background-color: transparent;
         border: none;
+        cursor: pointer;
     }
 `
 
 
 
-const Imagem = ({ foto }) => {
+const Imagem = ({ foto, expandida=false, aoZoomSolicitado }) => {
     return (
         <FigureEstilizado>
             <img 
@@ -66,8 +69,8 @@ const Imagem = ({ foto }) => {
                 <FooterEstilizada>
                     <p>{foto.fonte}</p>
                     <div>
-                        <button><FaHeart color="white"/></button>
-                        <button><FaExpandAlt color="white"/></button>
+                        <button><img src="/icones/favorito.png" alt="Icone de Favorito" /></button>
+                        {!expandida && <button aria-hidden={expandida} onClick={() => aoZoomSolicitado(foto)}><img src="/icones/expandir.png" alt="Icone de expandir"/></button>}
                     </div>
                 </FooterEstilizada>
             </FigcaptionEstilizada>

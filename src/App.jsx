@@ -4,8 +4,9 @@ import Cabecalho from "./componentes/Cabecalho";
 import BarraLateral from "./componentes/BarraLateral";
 import Banner from "./componentes/Banner";
 import Galeria from "./componentes/Galeria";
+import ModalZoom from "./componentes/ModalZoom"
 
-import fotos from './fotos.json'
+import fotos from "./fotos.json";
 import { useState } from "react";
 
 const FundoGradiente = styled.div`
@@ -33,10 +34,11 @@ const ConteudoGaleria = styled.section`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-`
+`;
 
 const App = () => {
-  const [fotosDaGaleria, setFotosDaGaleria] = useState(fotos)
+  const [fotosDaGaleria, setFotosDaGaleria] = useState(fotos);
+  const [fotoSelecionada, setFotoSelecionada] = useState(null);
 
   return (
     <>
@@ -51,15 +53,17 @@ const App = () => {
                 texto="A galeria mais completa de fotos do espaço!"
                 backgroundImage="./banner.png"
               />
-              <Galeria fotos={fotosDaGaleria}/>
+              <Galeria 
+                aoFotoSelecionada={foto => setFotoSelecionada(foto)} 
+                fotos={fotosDaGaleria} 
+              />
             </ConteudoGaleria>
-            
           </MainContainer>
-          
         </AppContainer>
+        <ModalZoom foto={fotoSelecionada}/>
       </FundoGradiente>
     </>
   );
-}
+};
 
 export default App;
